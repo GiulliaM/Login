@@ -1,0 +1,199 @@
+<CreateAccountWindow>:
+    name: "create"
+    namee: namee
+    email: email
+    password: passw
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.15, 0.18, 0.25, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Crie sua Conta"
+            size_hint: 0.8, 0.15
+            pos_hint: {"center_x":0.5, "top":0.98}
+            font_size: "32sp"
+            color: 1, 1, 1, 1
+
+        TextInput:
+            id: namee
+            hint_text: "Nome"
+            pos_hint: {"center_x":0.5, "top":0.80}
+            size_hint: 0.7, 0.09
+            multiline: False
+            font_size: "20sp"
+            background_color: 0.22, 0.25, 0.32, 1
+            foreground_color: 1, 1, 1, 1
+            padding: [15, 15]
+            cursor_color: 1, 1, 1, 1
+
+        TextInput:
+            id: email
+            hint_text: "Email"
+            pos_hint: {"center_x":0.5, "top":0.68}
+            size_hint: 0.7, 0.09
+            multiline: False
+            font_size: "20sp"
+            background_color: 0.22, 0.25, 0.32, 1
+            foreground_color: 1, 1, 1, 1
+            padding: [15, 15]
+            cursor_color: 1, 1, 1, 1
+
+        TextInput:
+            id: passw
+            hint_text: "Senha"
+            pos_hint: {"center_x":0.5, "top":0.56}
+            size_hint: 0.7, 0.09
+            multiline: False
+            password: True
+            font_size: "20sp"
+            background_color: 0.22, 0.25, 0.32, 1
+            foreground_color: 1, 1, 1, 1
+            padding: [15, 15]
+            cursor_color: 1, 1, 1, 1
+
+        Button:
+            text: "Já tem conta? Entrar"
+            pos_hint: {"center_x":0.5, "y":0.18}
+            size_hint: 0.5, 0.09
+            font_size: "18sp"
+            background_color: 0.18, 0.22, 0.35, 1
+            color: 1, 1, 1, 1
+            border: [20, 20, 20, 20]
+            on_release:
+                root.manager.transition.direction = "left"
+                root.login()
+
+        Button:
+            text: "Criar Conta"
+            pos_hint: {"center_x":0.5, "y":0.05}
+            size_hint: 0.5, 0.11
+            font_size: "20sp"
+            background_color: 0.27, 0.45, 0.35, 1
+            color: 1, 1, 1, 1
+            border: [20, 20, 20, 20]
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submit()
+
+<LoginWindow>:
+    name: "login"
+    email: email
+    password: password
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.15, 0.18, 0.25, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Bem-vindo!"
+            font_size: "32sp"
+            color: 1, 1, 1, 1
+            size_hint: 0.8, 0.15
+            pos_hint: {"center_x":0.5, "top":0.98}
+
+        TextInput:
+            id: email
+            hint_text: "Email"
+            font_size: "20sp"
+            multiline: False
+            pos_hint: {"center_x":0.5, "top":0.80}
+            size_hint: 0.7, 0.09
+            background_color: 0.22, 0.25, 0.32, 1
+            foreground_color: 1, 1, 1, 1
+            padding: [15, 15]
+            cursor_color: 1, 1, 1, 1
+
+        TextInput:
+            id: password
+            hint_text: "Senha"
+            font_size: "20sp"
+            multiline: False
+            password: True
+            pos_hint: {"center_x":0.5, "top":0.68}
+            size_hint: 0.7, 0.09
+            background_color: 0.22, 0.25, 0.32, 1
+            foreground_color: 1, 1, 1, 1
+            padding: [15, 15]
+            cursor_color: 1, 1, 1, 1
+
+        Button:
+            text: "Entrar"
+            pos_hint: {"center_x":0.5, "y":0.18}
+            size_hint: 0.5, 0.11
+            font_size: "20sp"
+            background_color: 0.27, 0.45, 0.35, 1
+            color: 1, 1, 1, 1
+            border: [20, 20, 20, 20]
+            on_release:
+                root.manager.transition.direction = "up"
+                root.login_btn()
+
+        Button:
+            text: "Criar nova conta"
+            pos_hint: {"center_x":0.5, "y":0.05}
+            size_hint: 0.5, 0.09
+            font_size: "18sp"
+            background_color: 0.18, 0.22, 0.35, 1
+            color: 1, 1, 1, 1
+            border: [20, 20, 20, 20]
+            on_release:
+                root.manager.transition.direction = "right"
+                root.create_btn()
+
+<MainWindow>:
+    n: n
+    email: email
+    created: created
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.15, 0.18, 0.25, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            id: n
+            pos_hint: {"center_x":0.5, "top":0.90}
+            size_hint: 0.8, 0.12
+            text: "Account Name: "
+            font_size: "22sp"
+            color: 1, 1, 1, 1
+
+        Label:
+            id: email
+            pos_hint: {"center_x":0.5, "top":0.77}
+            size_hint: 0.8, 0.12
+            text: "Email: "
+            font_size: "22sp"
+            color: 1, 1, 1, 1
+
+        Label:
+            id: created
+            pos_hint: {"center_x":0.5, "top":0.64}
+            size_hint: 0.8, 0.12
+            text: "Created: "
+            font_size: "22sp"
+            color: 1, 1, 1, 1
+
+        Button:
+            text: "Sair"
+            pos_hint: {"center_x":0.5, "y":0.08}
+            size_hint: 0.5, 0.11
+            font_size: "20sp"
+            background_color: 0.8, 0.2, 0.2, 1
+            color: 1, 1, 1, 1
+            border: [20, 20, 20, 20]
+            on_release:
+                app.root.current = "login"
+                root.manager.transition.direction = "down"
